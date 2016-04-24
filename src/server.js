@@ -8,9 +8,12 @@
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 var config = require('./config/environment');
+var bodyParser = require('koa-bodyparser');
+//var bodyParser = require('koa-body-parser');
 
 // Bootstrap server
 var app = require('koa')();
+app.use(bodyParser());
 require('./config/koa')(app);
 require('./config/routes')(app);
 
